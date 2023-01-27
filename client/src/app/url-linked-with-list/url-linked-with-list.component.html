@@ -1,0 +1,40 @@
+<div class="m-5">
+    <div class="page-header ">
+    <div >
+        <h2 class="page-title ">
+            Details for <span class="font-weight-bold">{{url}}</span>
+        </h2>
+    </div>
+   
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Domain Url</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-8 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Url linked With above Link</h4>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="font-weight-bold">URL connected</th>
+                  <th class="font-weight-bold">Anchor Text</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let i of list">
+                    <td>{{i._id}}</td>
+                    <td>{{i.anchorText}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div></div>

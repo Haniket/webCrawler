@@ -1,0 +1,68 @@
+<h2 class="text-center m-5">
+    We will get you the site view
+</h2>
+
+<div class="m-5" [ngClass]="selectedDomain ? 'justify-content-between' : 'text-center'"><div class="page-header ">
+
+        <div class="card-body" >
+            <p class="page-title ">
+                Select the domain from dropdown
+            </p>        
+            <select id='domain' name='dropdown' [(ngModel)]="selectedDomain" (click)="getUrlWithDomain()" class='p-2 btn btn-gradient-primary'>
+                Select
+                <option class="dropdown-item" *ngFor="let item of domain" [value]="item">
+                  {{item}}
+                </option>    
+            </select>
+        </div>
+   
+   
+    <div *ngIf="selectedDomain" class="card-body px-5 ">
+            <p class="d-flex ">rebuild the web graph</p>
+            <button (click)="resetMap()" class="d-flex btn btn-primary">Rebuild</button>
+            <p *ngIf="reset">successfully reset</p>
+        </div>
+       
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Domain Url</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="row justify-content-center" *ngIf="selectedDomain">
+    <div class="col-lg-8 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Table Of Url</h4>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>URL</th>
+                  <th>Count of URL</th>
+                  <th>Details of URL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let url of list | paginate: { itemsPerPage: 50, currentPage: p }">
+                    <td>{{url._id}}</td>
+                    <td>{{url.count}}</td>
+                    <td><button class="btn btn-danger" type="button" (click)="getDetails(url._id)">Details</button></td>    
+                </tr>
+              </tbody>
+            </table>
+            <pagination-controls (pageChange)="p = $event" class="pagination-rounded-separated d-flex justify-content-center pagination-danger m-4"></pagination-controls>
+ 
+          </div>
+        </div>
+      </div>
+    </div>
+</div></div>
+
+
+<div class="template-demo">
+
+    
+  </div>
+
+
